@@ -21,11 +21,11 @@ app.use(morgan('dev'))
 
 app.use('/router',appRouter);
 
-app.get("/",function(req,res){
-  console.log("Everything works");
-  res.render("index");
-});
+// app.get("/",function(req,res){
+//   console.log("Everything works");
+//   res.render("index");
+// });
 
-app.listen(3000, function () {
+app.listen(3100, function () {
     console.log('Express running on http://localhost:3000/.')
 });
