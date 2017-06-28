@@ -20,7 +20,7 @@ const getToDoItems = function(req, res, next) {
 router.get("/todoitems", function(req, res) {
   models.todo_list.findAll().then(function(item) {
     res.render("todoitems", {
-      
+
     });
   });
 });
@@ -48,7 +48,7 @@ router.post(/todoitems, function(req,res){
 });
 
 router.post("/todoitems/:todoitemid/delete", getStudent, function(req, res) {
-  req.student.destroy().then(function() {
+  req.todo_list.destroy().then(function() {
     res.redirect("/");
   });
 });
