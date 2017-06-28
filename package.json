@@ -1,0 +1,31 @@
+{
+  "name": "todo_seqapp",
+  "version": "1.0.0",
+  "description": "Re-do todo app with sequelize",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrbin42/todo_SeqApp.git"
+  },
+  "author": "Adrienne Bing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrbin42/todo_SeqApp/issues"
+  },
+  "homepage": "https://github.com/adrbin42/todo_SeqApp#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-mustache": "^1.0.3",
+    "express-session": "^1.15.3",
+    "express-validator": "^3.2.0",
+    "morgan": "^1.8.2",
+    "mustache": "^2.3.0",
+    "path": "^0.12.7",
+    "pg": "^6.4.0",
+    "sequelize": "^4.2.0"
+  }
+}
