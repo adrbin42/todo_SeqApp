@@ -1,58 +1,34 @@
 const express = require('express');
 const router = express.Router();
-const model = require('../models/todo_list.js');
+const models = require('../models');
 
-router.get('/', function (req,res){
+router.get("/", function (req,res){
   res.render('index');
 });
 
-const getToDoItems = function(req, res, next) {
-  models.todo_list.findById(req.params.todoitemid).then(function(item) {
-    if (item) {
-      req.item = item;
-      next();
-    } else {
-      res.status(404).send("Not Found");
-    }
-  });
-}
-
-router.get("/todoitems", function(req, res) {
-  models.todo_list.findAll().then(function(item) {
-    res.render("todoitems", {
-
-    });
-  });
-});
-
-router.post(/todoitems, function(req,res){
-  let todoitem = req.body.todoitem,
-      tododesc =req.body.itemdesc;
-
-  const todoitem = {
-    todoitem = req.body.todoitem,
-    tododesc = req.body.itemdesc
+router.post("/", function(req,res){
+  const todotask = {
+    todoitem:req.body.todoitem,
+    tododesc:req.body.itemdesc
   };
 
   req.getValidationResult().then(function(result) {
     if (result.isEmpty()) {
-      models.todo_list.create(todoitem).then(function(item) {
+      models.todo_list.create(todotask).then(function(item) {
         res.redirect("/todoitems");
       });
     } else {
       res.redirect("/index");
     }
   });
-
-
 });
 
-router.post("/todoitems/:todoitemid/delete", getStudent, function(req, res) {
-  req.todo_list.destroy().then(function() {
-    res.redirect("/");
+router.get("/todoitems", function(req, res) {
+  models.todo_list.findAll().then(function(todoList) {
+    res.render("todoitems", {
+      todolistitems: todoList
+    });
   });
 });
-
-
 
 module.exports = router;
